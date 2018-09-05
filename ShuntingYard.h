@@ -1,7 +1,5 @@
 /*
- *   khuang18
  *   Kai Huang
- *   Lab10
  *   ShuntingYard.h
  *   Converts infix to postfix notation (header file)
  */

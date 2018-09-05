@@ -1,3 +1,5 @@
+# Kai Huang
+# Makefile
 # Makefile for Truth Table Calculator
 
 main : main.o TruthTable.o ShuntingYard.o Stack.o

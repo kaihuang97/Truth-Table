@@ -1,7 +1,5 @@
 /*
- *   khuang18
  *   Kai Huang
- *   Lab10
  *   Stack.h
  *   Stack Data Structure for chars (header file)
  */

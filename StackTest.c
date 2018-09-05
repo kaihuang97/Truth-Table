@@ -1,7 +1,5 @@
 /*
- *   khuang18
  *   Kai Huang
- *   Lab10
  *   StackTest.c
  *   Test Harness for Stack.c
  */

@@ -1,7 +1,5 @@
 /*
- *   khuang18
  *   Kai Huang
- *   Lab10
  *   main.c
  *   Evalutes boolean expression to truth table output
  */

@@ -1,7 +1,5 @@
 /*
- *   khuang18
  *   Kai Huang
- *   Lab10
  *   TruthTable.c
  *   Evaluates truth table values given postfix expression
  */

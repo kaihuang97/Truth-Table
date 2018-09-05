@@ -1,7 +1,5 @@
 /*
- *   khuang18
  *   Kai Huang
- *   Lab10
  *   Stack.c
  *   Stack Data Structure for chars
  */
