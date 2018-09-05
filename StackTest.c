@@ -14,44 +14,49 @@ int main()
 {
     printf("Starting Stack Tests:\n");
 
-    char arr[5] = "hello";
-    struct Stack* stack = createStack(strlen(arr));
+    char testArr[] = "hello";
+    
+    struct Stack* stack = createStack(strlen(testArr));
 
     printf("is stack empty? %s\n", isEmpty(stack) ? "yes" : "no");
 
-    printf("reverse push and pop:\n");
+    printf("reverse push and pop %d times:\n", (int)strlen(testArr));
     int i;
-    for (i = 0; i < strlen(arr); i++) {
-        push(stack, arr[i]);
+    for (i = 0; i < strlen(testArr); i++) {
+        push(stack, testArr[i]);
     }
 
-    for (i = 0; i < strlen(arr); i++) {
+    for (i = 0; i < strlen(testArr); i++) {
         printf("	popped off: %c\n", pop(stack));
-        if (i != strlen(arr) - 1) {
+        if (i != strlen(testArr) - 1) {
             printf("		next char: %c\n", next(stack));
         }
     }
 
-    printf("additional pop returns NULL? %s\n", pop(stack) == NULL ? "yes" : "no");
+    printf("additional pop returns NULL? %s\n", pop(stack) == '$' ? "yes" : "no");
 
     printf("in order push and pop:\n");
 
-    for (i = strlen(arr) - 1; i >= 0; i--) {
-        push(stack, arr[i]);
+    for (i = strlen(testArr) - 1; i >= 0; i--) {
+        push(stack, testArr[i]);
     }
 
-    for (i = 0; i < strlen(arr); i++) {
+    for (i = 0; i < strlen(testArr); i++) {
         printf("	popped off: %c\n", pop(stack));
-        if (i != strlen(arr) - 1) {
+        if (i != strlen(testArr) - 1) {
             printf("		next char: %c\n", next(stack));
         }
     }
 
-    printf("additional pop returns NULL? %s\n", pop(stack) == NULL ? "yes" : "no");
+    printf("additional pop returns NULL? %s\n", pop(stack) == '$' ? "yes" : "no");
+
+    free(stack->array);
+    free(stack);
 
     printf("\n\n");
 
-    char exp[17] = "A + B + C & D & E";
+    char exp[] = "A + B + C & D & E";
+    stack = createStack(strlen(exp));
 
     printf("is stack empty? %s\n", isEmpty(stack) ? "yes" : "no");
 
@@ -68,7 +73,7 @@ int main()
         }
     }
 
-    printf("additional pop returns NULL? %s\n", pop(stack) == NULL ? "yes" : "no");
+    printf("additional pop returns NULL? %s\n", pop(stack) == '$' ? "yes" : "no");
 
     printf("in order push and pop:\n");
 
@@ -83,7 +88,10 @@ int main()
         }
     }
 
-    printf("additional pop returns NULL? %s\n", pop(stack) == NULL ? "yes" : "no");
+    printf("additional pop returns NULL? %s\n", pop(stack) == '$' ? "yes" : "no");
 
-    while (1);
+    free(stack->array);
+    free(stack);
+
+    return 0;
 }

@@ -17,7 +17,7 @@ int precedence(char input);
 // used shuntingYard psuedocode found on GeeksforGeeks as reference
 int shuntingYard(char* arr, int numVariables)
 {
-    int i = 0, k = -1;
+    int i = 0, k = 0;
     // create stack length of expression
     struct Stack* stack = createStack(strlen(arr));
     if (stack == NULL) return 0; // check for failed malloc
@@ -27,17 +27,14 @@ int shuntingYard(char* arr, int numVariables)
 
     // iterate through stack
     while (arr[i]) {
-        // if input is letter, add to output
-        if (isLetter(arr[i])) {
-            arr[++k] = arr[i];
+        if (isLetter(arr[i])) { // if input is letter, add to output
+            arr[k++] = arr[i];
             numVariables++;
-        }// if '(' push to stack
-        else if (arr[i] == '(') {
+        } else if (arr[i] == '(') { // if '(' push to stack
             push(stack, arr[i]);
-        }// if ')' pop everything until '(' is encountered
-        else if (arr[i] == ')') {
+        } else if (arr[i] == ')') { // if ')' pop everything until '(' is encountered
             while (!isEmpty(stack) && next(stack) != '(') {
-                arr[++k] = pop(stack); // output      
+                arr[k++] = pop(stack); // output      
             }
             if (!isEmpty(stack) && next(stack) != '(') return -1;
             else pop(stack);
@@ -45,7 +42,7 @@ int shuntingYard(char* arr, int numVariables)
             // while precedence of operator is greater than precedence of the next in stack
             // push otherwise pop
             while (!isEmpty(stack) && precedence(arr[i]) <= precedence(next(stack))) {
-                arr[++k] = pop(stack);
+                arr[k++] = pop(stack);
             }
             push(stack, arr[i]);
         }
@@ -54,11 +51,11 @@ int shuntingYard(char* arr, int numVariables)
 
     // pop operators from stack
     while (!isEmpty(stack)) {
-        arr[++k] = pop(stack);
+        arr[k++] = pop(stack);
     }
 
     // null-terminating char
-    arr[++k] = '\0';
+    arr[k++] = '\0';
 
     free(stack->array);
     free(stack);
