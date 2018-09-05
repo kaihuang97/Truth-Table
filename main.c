@@ -25,9 +25,9 @@ int main()
     // testing custom boolean expression input
 
     // char truthTableInput[] = "(!A + !B) & (!C + !D) | ((!E + !F) & (!G + !H)) + I + J + K";
-    char truthTableInput[] = "(!A + !B) & (!C + !D) | ((!E + !F) & (!G + !H))";
+    // char truthTableInput[] = "(!A + !B) & (!C + !D) | ((!E + !F) & (!G + !H))";
     // char truthTableInput[] = "A + B & !C & D + !E";
-    // char truthTableInput[] = "(!A + !B) & (!C + !D)";
+    char truthTableInput[] = "(!A + !B) & (!C + !D)";
     // char truthTableInput[] = "A + B & !C";
     // char truthTableInput[] = "A ^ B";
     
@@ -39,7 +39,7 @@ int main()
     int* truthTableOutput = (int*) malloc((int) pow(2, numVariables) * sizeof (int));
 
     // generate truth table result, outputs to int array truthTableOutput
-    truthTable(truthTableInput, truthTableOutput, 0, numVariables);
+    truthTable(truthTableInput, truthTableOutput, 0, numVariables, strlen(truthTableInput));
 
     // recursively print binary truth table with evaluated result
     truthTablePrint(0, numVariables, truthTableOutput);

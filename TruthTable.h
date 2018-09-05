@@ -15,7 +15,7 @@
 
 // iterate through each binary input
 // recursive function to generate numVariables-digit binary numbers
-void truthTable(char* arr, int* output, int index, int numVariables);
+void truthTable(char* arr, int* output, int index, int numVariables, int inputLength);
 
 // convert from variables to binary input to parse in evaluate()
 void parseVariables(char* arr, char* binary);

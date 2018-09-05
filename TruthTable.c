@@ -20,12 +20,11 @@ void copyArray(char* dst, char* src);
 
 // iterate through each binary input
 // recursive function to generate numVariables-digit binary numbers
-void truthTable(char* arr, int* output, int index, int numVariables)
+void truthTable(char* arr, int* output, int index, int numVariables, int inputLength)
 {
     if (index == numVariables) {
         // dynamically allocated char array for parsed input (plugging in binary)
-        // char parsed[strlen(arr)];
-        char* parsed = (char*) calloc(sizeof(arr), sizeof(arr));
+        char* parsed = (char*) calloc(inputLength + 2, sizeof(char));
         copyArray(parsed, arr);
 
         // plug in binary values
@@ -40,9 +39,9 @@ void truthTable(char* arr, int* output, int index, int numVariables)
     } else {
         // generate binary values
         binaryInput[index] = '0';
-        truthTable(arr, output, index + 1, numVariables);
+        truthTable(arr, output, index + 1, numVariables, inputLength);
         binaryInput[index] = '1';
-        truthTable(arr, output, index + 1, numVariables);
+        truthTable(arr, output, index + 1, numVariables, inputLength);
     }
 }
 
